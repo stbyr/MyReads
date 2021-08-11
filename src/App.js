@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import Home from './Home'
 import Search from './Search'
@@ -14,6 +14,7 @@ class BooksApp extends React.Component {
 
   // adds book from Search page to Home page on a specific shelf; state and local storage are updated
   addBook = (book, value) => { 
+        value !== 'none' && 
         this.setState((prevState) => ({
           [value]: prevState[value].concat(book)
         }), () => {
@@ -40,29 +41,31 @@ class BooksApp extends React.Component {
 
   moveBook = (book, value) => {
       this.removeBook(book, value);
-        this.addBook(book, value);
+      this.addBook(book, value);
     };
   
   render() {
         return (
-          <div>
-              <Route exact path="/" render={() => (
-              <Home 
-                moveBook={this.moveBook} 
-            currentlyReading={this.state.currentlyReading}
-                        wantToRead={this.state.wantToRead}
-                        read={this.state.read}
-          />
-            )} /> 
-            <Route path="/search" render={() => (
+          <Router>
+            <div>
+                <Route exact path="/" render={() => (
+                  <Home 
+                    moveBook={this.moveBook} 
+                    currentlyReading={this.state.currentlyReading}
+                    wantToRead={this.state.wantToRead}
+                    read={this.state.read}
+                  />
+                )} /> 
+                <Route path="/search" render={() => (
                   <Search 
-                      moveBook={this.moveBook} 
-            currentlyReading={this.state.currentlyReading}
-                        wantToRead={this.state.wantToRead}
-                        read={this.state.read}
-          />
-              )} />
-          </div> 
+                    moveBook={this.moveBook} 
+                    currentlyReading={this.state.currentlyReading}
+                    wantToRead={this.state.wantToRead}
+                    read={this.state.read}
+                  />
+                )} />
+            </div> 
+          </Router>
         )
   }
 }

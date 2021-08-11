@@ -9,14 +9,18 @@ Install all project dependencies:
 
 ```bash
 npm install
-npm install --save react-router-dom
-npm install --save prop-types
 ````
 Start the development server: 
 
 ```bash
 npm start
 ````
+
+## Video demonstration
+
+Click here for a short video demonstration of the app:
+
+[![Watch the video](https://img.youtube.com/vi/DyEkRQxXSqo/maxresdefault.jpg)](https://www.youtube.com/watch?v=DyEkRQxXSqo)
 
 ## API Reference
 
@@ -28,4 +32,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## License
 
-A starter template code for the static application was provided by Udacity's React Nanodegree. The nonstatic, interactive version of the application was written by Stefanie Beyer.
+A starter template code for the static application was provided by Udacity's React Nanodegree, see [here](https://github.com/udacity/reactnd-project-myreads-starter). The nonstatic, interactive version of the application was written by Stefanie Beyer.
